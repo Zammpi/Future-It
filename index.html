@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovation Beyond Limits | Empowering the Future with IT</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0b0f19;
+      color: #e6e6e6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+
+    /* === HEADER === */
+    header {
+      background-color: rgba(15, 20, 35, 0.8);
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: #00e0ff;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #e6e6e6;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00e0ff;
+      text-shadow: 0 0 8px #00e0ff;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 180px 20px 140px;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      color: #00e0ff;
+      text-shadow: 0 0 12px #00e0ff;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #b0c4de;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+
+    .hero a {
+      background: linear-gradient(90deg, #00e0ff, #007bff);
+      color: #fff;
+      padding: 14px 40px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 0 10px #00e0ff;
+      transition: all 0.3s ease;
+    }
+
+    .hero a:hover {
+      background: linear-gradient(90deg, #007bff, #00e0ff);
+      box-shadow: 0 0 20px #00e0ff;
+      transform: translateY(-2px);
+    }
+
+    .typing {
+      border-right: 2px solid #00e0ff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 0;
+      animation: typing 4s steps(40) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* === SECTION TEMPLATE === */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      color: #00e0ff;
+      text-shadow: 0 0 8px #00e0ff;
+      margin-bottom: 25px;
+    }
+
+    /* === ABOUT === */
+    .about p {
+      color: #cfd8dc;
+      font-size: 1.05rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* === PROGRAMS === */
+    .programs {
+      background: linear-gradient(180deg, #0b0f19 0%, #111827 100%);
+    }
+
+    .program-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 15px;
+      width: 300px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+
+    .card h4 {
+      color: #00e0ff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #b0c4de;
+      font-size: 0.95rem;
+    }
+
+    /* === FUTURE TECH === */
+    .future-tech {
+      background: radial-gradient(circle at center, #101826 0%, #0b0f19 80%);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+      padding: 0 20px;
+      max-width: 1100px;
+      margin-inline: auto;
+    }
+
+    .tech-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 25px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .tech-item:hover {
+      background: rgba(0, 255, 255, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .tech-item h4 {
+      color: #00e0ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 6px #00e0ff;
+    }
+
+    .tech-item p {
+      color: #cfd8dc;
+      font-size: 0.95rem;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #0a0d16;
+      color: #b0c4de;
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    footer p { font-size: 0.9rem; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 30px;
+      }
+
+      nav a { margin: 8px; display: inline-block; }
+
+      .hero h2 { font-size: 2rem; }
+
+      .hero p { font-size: 1rem; }
+
+      .card { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === HEADER === -->
+  <header>
+    <h1>Beyond Limits IT</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#future-tech">Future Tech</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- === HERO === -->
+  <section class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <h2><span class="typing">Innovation Beyond Limits</span></h2>
+      <p>Empowering the Future with IT — Building knowledge, creativity, and leadership through technology-driven education.</p>
+      <a href="#programs">Explore Programs</a>
+    </div>
+  </section>
+
+  <!-- === ABOUT === -->
+  <section id="about" class="about">
+    <h3>About Us</h3>
+    <p>We are a digital education initiative that bridges innovation and technology. 
+       Our goal is to prepare the next generation of innovators by offering accessible programs in cutting-edge fields such as AI, Cloud Computing, and Cybersecurity — helping students shape the future, beyond limits.</p>
+  </section>
+
+  <!-- === PROGRAMS === -->
+  <section id="programs" class="programs">
+    <h3>Our Learning Programs</h3>
+    <div class="program-list">
+      <div class="card">
+        <h4>Artificial Intelligence</h4>
+        <p>Discover the future of intelligent systems and machine learning models that drive innovation.</p>
+      </div>
+      <div class="card">
+        <h4>Cybersecurity</h4>
+        <p>Master how to safeguard digital environments through ethical hacking and defense strategies.</p>
+      </div>
+      <div class="card">
+        <h4>Cloud Computing</h4>
+        <p>Explore scalable cloud architectures with AWS, Azure, and Google Cloud technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === FUTURE TECH === -->
+  <section id="future-tech" class="future-tech">
+    <h3>The Future of Technology</h3>
+    <p>Technology continues to evolve at an unprecedented pace, shaping how we live, learn, and connect. Here are some key innovations leading the future of IT:</p>
+
+    <div class="tech-grid">
+      <div class="tech-item">
+        <h4>Artificial Intelligence (AI)</h4>
+        <p>AI will keep transforming industries through automation, personalized experiences, and smarter decision-making systems.</p>
+      </div>
+      <div class="tech-item">
+        <h4>Quantum Computing</h4>
+        <p>This emerging technology will revolutionize computing power, enabling complex problem-solving beyond classical limits.</p>
+      </div>
+      <div class="tech-item">
+        <h4>Internet of Things (IoT)</h4>
+        <p>Connected devices will continue to make homes, cities, and industries more efficient and intelligent.</p>
+      </div>
+      <div class="tech-item">
+        <h4>Blockchain</h4>
+        <p>Blockchain will expand beyond cryptocurrency, enhancing data security, transparency, and digital identity systems.</p>
+      </div>
+      <div class="tech-item">
+        <h4>Augmented & Virtual Reality</h4>
+        <p>AR and VR will reshape education, healthcare, and entertainment by merging digital and physical worlds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer id="contact">
+    <p>© 2025 Beyond Limits IT | Innovation Beyond Limits: Empowering the Future with IT</p>
+  </footer>
+
+  <!-- === PARTICLE ANIMATION SCRIPT === -->
+  <script>
+    const canvas = document.getElementById("particleCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const numParticles = 70;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight * 0.8;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 224, 255, 0.6)";
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  </script>
+</body>
+</html>
