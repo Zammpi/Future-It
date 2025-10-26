@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovation Beyond Limits | Empowering the Future with IT</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Limits IT</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -17,367 +15,297 @@
     }
 
     body {
-      background-color: #0b0f19;
-      color: #e6e6e6;
+      background-color: #000;
+      color: #fff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    a { text-decoration: none; }
-
-    /* === HEADER === */
-    header {
-      background-color: rgba(15, 20, 35, 0.8);
-      padding: 20px 60px;
+    /* NAVBAR */
+    nav {
+      background: linear-gradient(90deg, #000 0%, #003300 50%, #00ff66 100%);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 18px 8%;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,255,100,0.1);
     }
 
-    header h1 {
-      color: #00e0ff;
+    .logo {
       font-weight: 700;
+      font-size: 22px;
+      color: #9fff00;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    nav a {
-      color: #e6e6e6;
+    .nav-links a {
+      text-decoration: none;
+      color: #e0e0e0;
       margin-left: 25px;
       font-weight: 500;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+      transition: color 0.2s, text-shadow 0.2s;
     }
 
-    nav a:hover {
-      color: #00e0ff;
-      text-shadow: 0 0 8px #00e0ff;
+    .nav-links a:hover {
+      color: #9fff00;
+
     }
 
-    /* === HERO === */
-    .hero {
+    /* HERO SECTION */
+    header {
       position: relative;
-      text-align: center;
-      color: white;
-      padding: 180px 20px 140px;
+      height: 90vh;
       overflow: hidden;
     }
 
-    canvas {
+    .bg-fade {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
       z-index: 0;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
+    .bg-fade.active {
+      opacity: 1;
     }
 
-    .hero h2 {
-      font-size: 2.8rem;
-      color: #00e0ff;
-      text-shadow: 0 0 12px #00e0ff;
-      margin-bottom: 15px;
+    .light-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,255,150,0.08), transparent 70%),
+                  radial-gradient(circle at 70% 30%, rgba(0,255,0,0.12), transparent 70%);
+      animation: moveLight 10s infinite alternate ease-in-out;
+      z-index: 1;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes moveLight {
+      0% { transform: translate(-10%, -10%) scale(1); }
+      100% { transform: translate(-20%, -15%) scale(1.2); }
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      background: rgba(0,0,0,0.4);
+      padding: 40px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      margin-left: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #e8ffe0;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #b0c4de;
-      max-width: 650px;
-      margin: 0 auto 30px;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      color: #ccc;
     }
 
-    .hero a {
-      background: linear-gradient(90deg, #00e0ff, #007bff);
-      color: #fff;
-      padding: 14px 40px;
-      border-radius: 30px;
-      font-weight: 600;
-      box-shadow: 0 0 10px #00e0ff;
-      transition: all 0.3s ease;
-    }
-
-    .hero a:hover {
-      background: linear-gradient(90deg, #007bff, #00e0ff);
-      box-shadow: 0 0 20px #00e0ff;
-      transform: translateY(-2px);
-    }
-
-    .typing {
-      border-right: 2px solid #00e0ff;
-      white-space: nowrap;
-      overflow: hidden;
+    .btn {
       display: inline-block;
-      width: 0;
-      animation: typing 4s steps(40) forwards, blink 0.75s step-end infinite;
+      background: #9fff00;
+      color: #000;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, box-shadow 0.3s;
     }
 
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { border-color: transparent; } }
+    .btn:hover {
+      background: #bfff33;
+      box-shadow: 0 0 15px #9fff00;
+    }
 
-    /* === SECTION TEMPLATE === */
+    /* SECTIONS */
     section {
-      padding: 100px 20px;
+      padding: 80px 10%;
+      background: #050505;
+      border-top: 1px solid #111;
+    }
+
+    section h2 {
+      color: #9fff00;
+      font-size: 36px;
+      margin-bottom: 20px;
       text-align: center;
     }
 
-    section h3 {
-      font-size: 2rem;
-      color: #00e0ff;
-      text-shadow: 0 0 8px #00e0ff;
-      margin-bottom: 25px;
+    section p {
+      color: #ccc;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      font-size: 17px;
     }
 
-    /* === ABOUT === */
-    .about p {
-      color: #cfd8dc;
-      font-size: 1.05rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    /* === PROGRAMS === */
     .programs {
-      background: linear-gradient(180deg, #0b0f19 0%, #111827 100%);
-    }
-
-    .program-list {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 35px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 15px;
-      width: 300px;
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-      transition: all 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-    }
-
-    .card h4 {
-      color: #00e0ff;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #b0c4de;
-      font-size: 0.95rem;
-    }
-
-    /* === FUTURE TECH === */
-    .future-tech {
-      background: radial-gradient(circle at center, #101826 0%, #0b0f19 80%);
-    }
-
-    .tech-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       margin-top: 40px;
-      padding: 0 20px;
-      max-width: 1100px;
-      margin-inline: auto;
     }
 
-    .tech-item {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.2);
+    .program {
+      background: linear-gradient(145deg, #001900, #002d00);
+      border: 1px solid #044;
       padding: 25px;
       border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .tech-item:hover {
-      background: rgba(0, 255, 255, 0.1);
-      transform: translateY(-6px);
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-    }
-
-    .tech-item h4 {
-      color: #00e0ff;
-      margin-bottom: 10px;
-      text-shadow: 0 0 6px #00e0ff;
-    }
-
-    .tech-item p {
-      color: #cfd8dc;
-      font-size: 0.95rem;
-    }
-
-    /* === FOOTER === */
-    footer {
-      background-color: #0a0d16;
-      color: #b0c4de;
+      box-shadow: 0 0 20px rgba(0,255,100,0.05);
       text-align: center;
-      padding: 50px 20px;
-      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    footer p { font-size: 0.9rem; }
+    .program:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0,255,100,0.15);
+    }
 
-    /* === RESPONSIVE === */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 30px;
-      }
+    /* CONTACT */
+    .contact-info {
+      text-align: center;
+      font-size: 18px;
+      color: #aaa;
+    }
 
-      nav a { margin: 8px; display: inline-block; }
+    .contact-info a {
+      color: #9fff00;
+      text-decoration: none;
+    }
 
-      .hero h2 { font-size: 2rem; }
-
-      .hero p { font-size: 1rem; }
-
-      .card { width: 90%; }
+    footer {
+      background-color: #0d0d0d;
+      color: #777;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      border-top: 1px solid #222;
     }
   </style>
 </head>
 <body>
-
-  <!-- === HEADER === -->
-  <header>
-    <h1>Beyond Limits IT</h1>
-    <nav>
-      <a href="#">Home</a>
+  <nav>
+    <div class="logo">Beyond Limits IT</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#programs">Programs</a>
-      <a href="#future-tech">Future Tech</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <header id="home">
+    <div class="bg-fade active" id="bg1"></div>
+    <div class="bg-fade" id="bg2"></div>
+    <div class="light-effect"></div>
+    <div class="hero">
+      <h1>Empowering the Next Generation of Innovators</h1>
+      <p>
+        Beyond Limits IT adalah gerakan teknologi yang mendorong batas kreativitas dan inovasi digital —
+        membangun masa depan cerdas melalui teknologi dan kecerdasan buatan.
+      </p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
   </header>
 
-  <!-- === HERO === -->
-  <section class="hero">
-    <canvas id="particleCanvas"></canvas>
-    <div class="hero-content">
-      <h2><span class="typing">Innovation Beyond Limits</span></h2>
-      <p>Empowering the Future with IT — Building knowledge, creativity, and leadership through technology-driven education.</p>
-      <a href="#programs">Explore Programs</a>
-    </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Tentang Kami</h2>
+    <p>
+      Kami adalah sekelompok siswa yang ingin berinovasi setinggi-tingginya dalam dunia teknologi.
+      Visi kami adalah menciptakan generasi muda yang tidak hanya menggunakan teknologi — tetapi juga menciptakannya,
+      mendorong perubahan positif di masa depan.
+    </p>
   </section>
 
-  <!-- === ABOUT === -->
-  <section id="about" class="about">
-    <h3>About Us</h3>
-    <p>We are a digital education initiative that bridges innovation and technology. 
-       Our goal is to prepare the next generation of innovators by offering accessible programs in cutting-edge fields such as AI, Cloud Computing, and Cybersecurity — helping students shape the future, beyond limits.</p>
-  </section>
-
-  <!-- === PROGRAMS === -->
-  <section id="programs" class="programs">
-    <h3>Our Learning Programs</h3>
-    <div class="program-list">
-      <div class="card">
-        <h4>Artificial Intelligence</h4>
-        <p>Discover the future of intelligent systems and machine learning models that drive innovation.</p>
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <h2>Program Kami</h2>
+    <p>Berikut adalah beberapa rencana dan program inovatif yang akan kami kembangkan:</p>
+    <div class="programs">
+      <div class="program">
+        <h3>AI for Future</h3>
+        <p>Pelatihan pengenalan kecerdasan buatan untuk pelajar muda yang ingin memahami logika mesin dan data.</p>
       </div>
-      <div class="card">
-        <h4>Cybersecurity</h4>
-        <p>Master how to safeguard digital environments through ethical hacking and defense strategies.</p>
+      <div class="program">
+        <h3>Green Tech Innovation</h3>
+        <p>Proyek berbasis teknologi ramah lingkungan untuk mendukung keberlanjutan dan efisiensi energi.</p>
       </div>
-      <div class="card">
-        <h4>Cloud Computing</h4>
-        <p>Explore scalable cloud architectures with AWS, Azure, and Google Cloud technology.</p>
+      <div class="program">
+        <h3>Smart Robotics</h3>
+        <p>Mengembangkan robot cerdas yang mampu membantu manusia dalam kehidupan sehari-hari.</p>
       </div>
     </div>
   </section>
 
-  <!-- === FUTURE TECH === -->
-  <section id="future-tech" class="future-tech">
-    <h3>The Future of Technology</h3>
-    <p>Technology continues to evolve at an unprecedented pace, shaping how we live, learn, and connect. Here are some key innovations leading the future of IT:</p>
-
-    <div class="tech-grid">
-      <div class="tech-item">
-        <h4>Artificial Intelligence (AI)</h4>
-        <p>AI will keep transforming industries through automation, personalized experiences, and smarter decision-making systems.</p>
-      </div>
-      <div class="tech-item">
-        <h4>Quantum Computing</h4>
-        <p>This emerging technology will revolutionize computing power, enabling complex problem-solving beyond classical limits.</p>
-      </div>
-      <div class="tech-item">
-        <h4>Internet of Things (IoT)</h4>
-        <p>Connected devices will continue to make homes, cities, and industries more efficient and intelligent.</p>
-      </div>
-      <div class="tech-item">
-        <h4>Blockchain</h4>
-        <p>Blockchain will expand beyond cryptocurrency, enhancing data security, transparency, and digital identity systems.</p>
-      </div>
-      <div class="tech-item">
-        <h4>Augmented & Virtual Reality</h4>
-        <p>AR and VR will reshape education, healthcare, and entertainment by merging digital and physical worlds.</p>
-      </div>
-    </div>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Hubungi Kami</h2>
+    <p class="contact-info">
+      Ingin bergabung atau berkolaborasi?<br>
+      Email: <a href="mailto:beyondlimitsit@gmail.com">beyondlimitsit@gmail.com</a><br>
+      Instagram: <a href="#">@beyondlimits.it</a>
+    </p>
   </section>
 
-  <!-- === FOOTER === -->
-  <footer id="contact">
-    <p>© 2025 Beyond Limits IT | Innovation Beyond Limits: Empowering the Future with IT</p>
+  <footer>
+    © 2025 Beyond Limits IT. All rights reserved.
   </footer>
 
-  <!-- === PARTICLE ANIMATION SCRIPT === -->
   <script>
-    const canvas = document.getElementById("particleCanvas");
-    const ctx = canvas.getContext("2d");
+    const images = [
+      "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80"
+    ];
 
-    let particles = [];
-    const numParticles = 70;
+    const bg1 = document.getElementById("bg1");
+    const bg2 = document.getElementById("bg2");
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 0.8;
+    let current = 0;
+    bg1.style.backgroundImage = `url(${images[current]})`;
+
+    function changeBackground() {
+      const next = (current + 1) % images.length;
+      const active = bg1.classList.contains("active") ? bg1 : bg2;
+      const inactive = active === bg1 ? bg2 : bg1;
+
+      inactive.style.backgroundImage = `url(${images[next]})`;
+
+      inactive.classList.add("active");
+      active.classList.remove("active");
+
+      current = next;
     }
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    for (let i = 0; i < numParticles; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-      });
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 224, 255, 0.6)";
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
+    setInterval(changeBackground, 2000);
   </script>
 </body>
 </html>
